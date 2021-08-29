@@ -1,0 +1,27 @@
+  [
+    {
+      "Name": "Site Furnishings",
+      "Color": "Fuscia",
+      "Uri": "https://vistaprint.com"
+    },
+    {
+      "Name": "HVAC",
+      "Color": "Mauv",
+      "Uri": "https://weather.com"
+    },
+    {
+      "Name": "Temp Fencing, Decorative Fencing and Gates",
+      "Color": "Red",
+      "Uri": "http://weather.com"
+    },
+    {
+      "Name": "Fire Sprinkler System",
+      "Color": "Goldenrod",
+      "Uri": "https://cnbc.com"
+    },
+    {
+      "Name": "Structural & Misc Steel Erection",
+      "Color": "Maroon",
+      "Uri": "https://prlog.org"
+    }
+  ]

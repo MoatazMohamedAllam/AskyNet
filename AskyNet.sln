@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{B0411953-E403-47A7-9EC3-ED11C4089936}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{B5881385-224F-4820-9FF3-6A0E07B32EB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{B0BC01A2-CA5B-4EA3-AF6A-8663CAAEC7DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0411953-E403-47A7-9EC3-ED11C4089936}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0411953-E403-47A7-9EC3-ED11C4089936}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0411953-E403-47A7-9EC3-ED11C4089936}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0411953-E403-47A7-9EC3-ED11C4089936}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5881385-224F-4820-9FF3-6A0E07B32EB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5881385-224F-4820-9FF3-6A0E07B32EB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5881385-224F-4820-9FF3-6A0E07B32EB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5881385-224F-4820-9FF3-6A0E07B32EB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0BC01A2-CA5B-4EA3-AF6A-8663CAAEC7DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0BC01A2-CA5B-4EA3-AF6A-8663CAAEC7DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0BC01A2-CA5B-4EA3-AF6A-8663CAAEC7DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0BC01A2-CA5B-4EA3-AF6A-8663CAAEC7DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3934F404-0131-4AC8-AF0B-98DB200725CF}
+	EndGlobalSection
+EndGlobal
