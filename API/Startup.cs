@@ -26,6 +26,8 @@ namespace API
         {
             services.AddApplicationServices();
 
+            services.AddIdentityServices();
+
             services.AddControllers();
 
             services.AddDbContext<AskyContext>(opt =>
