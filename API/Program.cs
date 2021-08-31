@@ -1,12 +1,12 @@
+using Core.Entities.Identity;
 using Infrastructure.Data;
+using Infrastructure.Data.Identity;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace API
@@ -25,6 +25,9 @@ namespace API
                 {
                     var context = services.GetRequiredService<AskyContext>();
                     await AskyContextSeed.SeedAsync(context, loggerFactory);
+
+                    var userManager = services.GetRequiredService<UserManager<AppUser>>();
+                    await IdentitySeed.SeedUsersAsync(userManager);
                 }
                 catch (Exception ex)
                 {
