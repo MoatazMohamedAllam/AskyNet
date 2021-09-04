@@ -1,4 +1,5 @@
 ﻿using API.Dtos;
+using API.Errors;
 using Core.Entities.Identity;
 using Core.Repositories;
 using Microsoft.AspNetCore.Authorization;
@@ -56,12 +57,12 @@ namespace API.Controllers
             var user = await _userManager.FindByEmailAsync(loginDto.Email);
 
             if (user == null)
-                return Unauthorized();
+                return Unauthorized(new ApiResponse(401));
 
             var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password, false);
 
             if (!result.Succeeded)
-                return Unauthorized();
+                return Unauthorized(new ApiResponse(401));
 
             return new UserDto
             {
@@ -87,7 +88,7 @@ namespace API.Controllers
             var result = await _userManager.CreateAsync(user, registerDto.Password);
 
             if (!result.Succeeded)
-                return BadRequest();
+                return BadRequest(new ApiResponse(400));
 
             return new UserDto
             {

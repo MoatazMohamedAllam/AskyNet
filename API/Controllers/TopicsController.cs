@@ -1,4 +1,5 @@
 ﻿using API.Dtos;
+using API.Errors;
 using AutoMapper;
 using Core;
 using Core.Entities;
@@ -41,7 +42,7 @@ namespace API.Controllers
             var topic = await _topicRepository.GetByIdAsync(id);
             
             if (topic == null)
-                return NotFound("this topic not found!");
+                return NotFound(new ApiResponse(404));
 
             return Ok(_mapper.Map<Topic, TopicDto>(topic));
         }

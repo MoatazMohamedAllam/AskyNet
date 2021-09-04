@@ -8,6 +8,10 @@ using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using API.Extensions;
 using API.Helpers;
+using API.Middleware;
+using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using API.Errors;
 
 namespace API
 {
@@ -39,20 +43,34 @@ namespace API
             });
 
             services.AddAutoMapper(typeof(MappingProfile));
+
+
+
+            //configure to handle badrequest response 
+            services.Configure<ApiBehaviorOptions>(opt =>
+            {
+                opt.InvalidModelStateResponseFactory = actionContext =>
+                {
+                    var errors = actionContext.ModelState
+                                    .Where(e => e.Value.Errors.Count > 0)
+                                    .SelectMany(e => e.Value.Errors)
+                                    .Select(x => x.ErrorMessage).ToArray();
+                    var errorResponse = new ApiValidationErrorResponse
+                    {
+                        Erros = errors
+                    };
+
+                    return new BadRequestObjectResult(errorResponse);
+                };
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c =>
-                {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1");
-                });
-            }
+            app.UseMiddleware<ExceptionMiddleware>();
+
+            app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
             app.UseHttpsRedirection();
 
@@ -61,6 +79,12 @@ namespace API
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "AskyNet API v1");
+            });
 
             app.UseEndpoints(endpoints =>
             {

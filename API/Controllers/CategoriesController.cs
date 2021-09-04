@@ -1,4 +1,5 @@
 ﻿using API.Dtos;
+using API.Errors;
 using AutoMapper;
 using Core;
 using Core.Entities;
@@ -43,7 +44,7 @@ namespace API.Controllers
             var category = await _categoryRepository.GetByIdAsync(id);
                 
             if (category == null)
-                return NotFound("this category not found!");
+                return NotFound(new ApiResponse(404));
 
             return Ok(_mapper.Map<Category, CategoryDto>(category));
         }
