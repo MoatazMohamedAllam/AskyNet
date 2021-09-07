@@ -11,6 +11,7 @@ namespace Core.Repositories
     {
         Task<Topic> GetByIdAsync(int id);
         Task<IReadOnlyList<Topic>> ListAllAsync();
+        Task<IReadOnlyList<Topic>> GetUserTopics(string userId);
         Task<Topic> AddAsync(Topic topic);
         Task<Topic> UpdateAsync(Topic topic);
         void RemoveAsync(Topic topic);

@@ -70,6 +70,7 @@ namespace API
         {
             app.UseMiddleware<ExceptionMiddleware>();
 
+
             app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
             app.UseHttpsRedirection();
@@ -81,6 +82,7 @@ namespace API
             app.UseAuthorization();
 
             app.UseSwagger();
+
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "AskyNet API v1");
